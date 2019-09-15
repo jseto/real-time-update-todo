@@ -17,7 +17,7 @@ after_script:
 script:
   - npm run build
   - npm test
-  - docker build -t jseto/real-time-update-todo .
+  - docker build -t jseto/react-ts-seed .
 
 deploy:
   provider: elasticbeanstalk

@@ -1,10 +1,10 @@
 {
-  "name": "real-time-update-todo",
+  "name": "react-ts-seed",
   "version": "0.1.0",
   "description": "A React app showing how to update several pages with winsockets",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jseto/real-time-update-todo"
+    "url": "git+https://github.com/jseto/react-ts-seed"
   },
   "keywords": [
     "winsockets",
@@ -15,9 +15,9 @@
   "author": "Josep Seto",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jseto/real-time-update-todo/issues"
+    "url": "https://github.com/jseto/react-ts-seed/issues"
   },
-  "homepage": "https://github.com/jseto/real-time-update-todo#readme",
+  "homepage": "https://github.com/jseto/react-ts-seed#readme",
   "scripts": {
     "test": "jest",
     "debug": "node --inspect-brk node_modules/.bin/jest --runInBand --coverage false",
@@ -26,7 +26,7 @@
     "dev": "npm run rest-server & webpack-dev-server --config webpack/web.webpack.config.js & wait",
     "dev-open": "npm run rest-server & npm run webpack-server & wait",
     "build": "webpack --mode=production",
-    "start": "node ./dist/backend/server.real-time-update-todo.js"
+    "start": "node ./dist/backend/server.react-ts-seed.js"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.3",
