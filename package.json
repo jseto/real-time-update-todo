@@ -1,0 +1,61 @@
+{
+  "name": "real-time-update-todo",
+  "version": "0.1.0",
+  "description": "A React app showing how to update several pages with winsockets",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jseto/real-time-update-todo"
+  },
+  "keywords": [
+    "winsockets",
+    "react",
+    "typescript",
+    "real time page refresh"
+  ],
+  "author": "Josep Seto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jseto/real-time-update-todo/issues"
+  },
+  "homepage": "https://github.com/jseto/real-time-update-todo#readme",
+  "scripts": {
+    "test": "jest",
+    "debug": "node --inspect-brk node_modules/.bin/jest --runInBand --coverage false",
+    "rest-server": "nodemon --watch 'backend/**/*.ts' --watch 'test/database/mock-data/*.*' --exec 'ts-node' backend/server.ts",
+    "webpack-server": "webpack-dev-server --config webpack/web.webpack.config.js --open",
+    "dev": "npm run rest-server & webpack-dev-server --config webpack/web.webpack.config.js & wait",
+    "dev-open": "npm run rest-server & npm run webpack-server & wait",
+    "build": "webpack --mode=production",
+    "start": "node ./dist/backend/server.real-time-update-todo.js"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.10.3",
+    "@types/express": "^4.16.1",
+    "@types/jest": "^24.0.13",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "css-loader": "^2.1.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.8.0",
+    "jest-enzyme": "^7.0.2",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "sass-loader": "^7.1.0",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "5.3.3",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}

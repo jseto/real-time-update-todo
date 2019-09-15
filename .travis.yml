@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+  - "10.15.3"
+
+services:
+  - docker
+
+env:
+  - CC_TEST_REPORTER_ID="get your ID from CODECLIMATE. More info at https://docs.codeclimate.com/docs/configuring-test-coverage"
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+script:
+  - npm run build
+  - npm test
+  - docker build -t jseto/real-time-update-todo .
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: $AWS_ACCESSKEYID
+  secret_access_key:
+    secure: "$AWS_SECRETACCESSKEY"
+  region: "eu-west-2"
+  app: "Real Time Update Todo"
+  env: "RealTimeUpdateTodo-env"
+  bucket_name: "elasticbeanstalk-eu-west-2-XXXXXXXXXXXX"
+  on:
+    branch: master

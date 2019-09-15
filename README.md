@@ -1,0 +1,4 @@
+# A Todo list with automatic update across browser instances
+
+![Build Status](https://travis-ci.org/jseto/real-time-update-todo.svg?branch=master)](https://travis-ci.org/jseto/real-time-update-todo) [![Maintainability](https://api.codeclimate.com/v1/badges/aaba262edf31d561db59/maintainability)](https://codeclimate.com/github/jseto/real-time-update-todo/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/aaba262edf31d561db59/test_coverage)](https://codeclimate.com/github/jseto/real-time-update-todo/test_coverage)
+[![dependencies Status](https://david-dm.org/jseto/real-time-update-todo/status.svg)](https://david-dm.org/jseto/real-time-update-todo) [![devDependencies Status](https://david-dm.org/jseto/real-time-update-todo/dev-status.svg)](https://david-dm.org/jseto/real-time-update-todo?type=dev)
