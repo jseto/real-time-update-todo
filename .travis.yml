@@ -26,8 +26,8 @@ deploy:
   secret_access_key:
     secure: "$AWS_SECRETACCESSKEY"
   region: "eu-west-2"
-  app: "Real Time Update Todo"
-  env: "RealTimeUpdateTodo-env"
-  bucket_name: "elasticbeanstalk-eu-west-2-XXXXXXXXXXXX"
+  app: "Test"
+  env: "real-time-update-todo-env"
+  bucket_name: "elasticbeanstalk-eu-west-2-564428849987"
   on:
     branch: master
