@@ -17,17 +17,17 @@ after_script:
 script:
   - npm run build
   - npm test
-  - docker build -t jseto/react-ts-seed .
+  - docker build -t jseto/real-time-update-todo .
 
-# deploy:
-#   provider: elasticbeanstalk
-#   access_key_id:
-#     secure: $AWS_ACCESSKEYID
-#   secret_access_key:
-#     secure: "$AWS_SECRETACCESSKEY"
-#   region: "eu-west-2"
-#   app: "React Typescript Seed"
-#   env: "React Typescript Seed-env"
-#   bucket_name: "elasticbeanstalk-eu-west-2-XXXXXXXXXXXX"
-#   on:
-#     branch: master
+deploy:
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: $AWS_ACCESSKEYID
+  secret_access_key:
+    secure: "$AWS_SECRETACCESSKEY"
+  region: "eu-west-2"
+  app: "Real Time Update Todo"
+  env: "RealTimeUpdateTodo-env"
+  bucket_name: "elasticbeanstalk-eu-west-2-XXXXXXXXXXXX"
+  on:
+    branch: master

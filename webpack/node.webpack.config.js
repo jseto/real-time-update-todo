@@ -9,7 +9,7 @@ module.exports = {
 		server: './backend/server.ts'
 	},
 	output: {
-		filename: '[name].react-ts-seed.js',
+		filename: '[name].real-time-update-todo.js',
 		path: __dirname + '/../' + _output + '/backend',
 	},
 	// devtool: "source-map",

@@ -9,7 +9,7 @@ module.exports = {
 	mode: 'development',
 	entry: "./src/index.tsx",
 	output: {
-		filename: '[name].react-ts-seed.js',
+		filename: '[name].real-time-update-todo.js',
 		path: __dirname + '/../' + _output + '/frontend',
 		libraryTarget: 'umd',
 		umdNamedDefine: true
@@ -108,7 +108,7 @@ module.exports = {
 	// externals: buildExternals(),
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: 'react-ts-seed.css'
+			filename: 'real-time-update-todo.css'
 		}),
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
