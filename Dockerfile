@@ -8,4 +8,4 @@ RUN npm run build
 ENV PORT=8080
 EXPOSE 8080
 
-CMD [ "node", "./dist/backend/server.wish-to-go.js" ]
+CMD [ "node", "./dist/backend/server.react-ts-seed.js" ]
