@@ -5,8 +5,8 @@ node_js:
 services:
   - docker
 
-env:
-  - CC_TEST_REPORTER_ID="get your ID from CODECLIMATE. More info at https://docs.codeclimate.com/docs/configuring-test-coverage"
+# env:
+#   - CC_TEST_REPORTER_ID="get your ID from CODECLIMATE. More info at https://docs.codeclimate.com/docs/configuring-test-coverage"
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
