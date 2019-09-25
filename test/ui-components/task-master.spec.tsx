@@ -32,16 +32,13 @@ describe( 'Task Master', ()=> {
 		expect ( listItems().at(0) ).toIncludeText( 'Task 1' );
 		expect ( listItems().at(4) ).toIncludeText( 'Task 5' );
 	});
-
-	it( 'should add a tasks', ()=> {
-
-	});
-
 	describe( 'Deleting items', ()=>{
 
 		it( 'should delete a task at start of list', ()=> {
-			deleteButton().at( 0 ).simulate('click');
-			wrapper = wrapper.update();
+			console.log('start')
+			deleteButton().at(0).simulate('click');
+			wrapper.update();
+			console.log( wrapper.debug() )
 
 			expect( deleteItem ).toHaveBeenCalled();
 			expect( list ).toHaveLength( 4 );
