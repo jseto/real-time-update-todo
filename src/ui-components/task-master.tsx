@@ -21,8 +21,7 @@ export class TaskMaster extends Component<TaskMasterProps> {
 							<TaskDetail
 								task={item}
 								onDelete={ ()=>onDelete( item ) }
-							>
-							</TaskDetail>
+							/>
 						</li>
 					);
 				}) }

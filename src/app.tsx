@@ -32,7 +32,12 @@ export class App extends Component<{}, AppState> {
 	}
 
   render() {
-    return <TaskMaster list={ this.state.taskList } onDelete={ item =>  this.deleteItem( item ) }/>;
+    return (
+			<TaskMaster
+				list={ this.state.taskList }
+				onDelete={ item =>  this.deleteItem( item ) }
+			/>
+		)
   }
 
 }
