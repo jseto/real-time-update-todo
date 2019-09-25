@@ -1,35 +1,20 @@
 import * as React from "react";
-// import * as ReactDOM from "react-dom";
 
 import { Component } from "react";
+import { TaskMaster } from "./ui-components/task-master";
+import { Task } from "./models/task";
 
-export interface AppProps {
-  name: string;
-}
-
-interface AppState {
-  name: string;
-}
-
-export class App extends Component<AppProps, AppState> {
-
-	constructor(props: AppProps) {
-    super(props);
-
-    this.state = { name: props.name };
-  }
-
-	stringToWrite() {
-		return 'Hello world';
-	}
-
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({name: this.stringToWrite()});
-    }, 2000);
-  }
+export class App extends Component {
 
   render() {
-    return <h1>Hello props: {this.props.name} state: {this.state.name}</h1>;
+		const list: Task[] = [
+			{ id:'1', description: 'Task 1' },
+			{ id:'2', description: 'Task 2' },
+			{ id:'3', description: 'Task 3' },
+			{ id:'4', description: 'Task 4' },
+			{ id:'5', description: 'Task 5' }
+		]
+
+    return <TaskMaster list={ list } />;
   }
 }
