@@ -5,11 +5,14 @@ import { TaskDetail } from '../../src/ui-components/task-detail';
 
 describe( 'Task component', ()=> {
 	let wrapper: ReactWrapper;
-
+	const deleteItem = jest.fn();
+	
 	beforeEach(()=>{
 		const task: Task = { id:'1', description: 'test task' }
 		wrapper = mount(
-			<TaskDetail task={task}>
+			<TaskDetail
+				task={task}
+				onDelete={ ()=>deleteItem() }>
 			</TaskDetail>
 		)
 	})

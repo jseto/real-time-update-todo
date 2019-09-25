@@ -6,16 +6,22 @@ import { Task } from "../models/task";
 
 interface TaskMasterProps {
 	list: Task[];
+	onDelete: ( item: Task ) => void;
 }
 
 export class TaskMaster extends Component<TaskMasterProps> {
 	render() {
+		const { list, onDelete } = { ...this.props }
+
 		return (
 			<ul>
-				{ this.props.list.map( item => {
+				{ list && list.map( item => {
 					return (
 						<li key={item.id}>
-							<TaskDetail task={item}>
+							<TaskDetail
+								task={item}
+								onDelete={ ()=>onDelete( item ) }
+							>
 							</TaskDetail>
 						</li>
 					);
