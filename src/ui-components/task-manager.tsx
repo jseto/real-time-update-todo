@@ -1,27 +1,25 @@
 import * as React from "react";
 
 import { Component, ChangeEvent } from "react";
-import { TaskMaster } from "./ui-components/task-master";
-import { Task } from "./models/task";
+import { TaskMaster } from "./task-master";
+import { Task } from "./../models/task";
 
-interface AppState {
+interface TaskManagerProps {
+	initialData?: Task[];
+}
+
+interface TaskManagerState {
 	taskList: Task[];
 	taskName: string;
 }
 
-export class App extends Component<{}, AppState> {
-	constructor( props: {} ) {
+export class TaskManager extends Component<TaskManagerProps, TaskManagerState> {
+	constructor( props: TaskManagerProps ) {
 		super( props );
 
 		this.state = {
 			taskName: '',
-			taskList: [
-				{ id:'1', description: 'Task 1' },
-				{ id:'2', description: 'Task 2' },
-				{ id:'3', description: 'Task 3' },
-				{ id:'4', description: 'Task 4' },
-				{ id:'5', description: 'Task 5' }
-			]
+			taskList: props.initialData || []
 		};
 	}
 
@@ -66,7 +64,7 @@ export class App extends Component<{}, AppState> {
 
 				<TaskMaster
 					list={ this.state.taskList }
-					onDelete={ item =>  this.deleteItem( item ) }
+					onDelete={ (item: Task ) =>  this.deleteItem( item ) }
 				/>
 			</div>
 		)

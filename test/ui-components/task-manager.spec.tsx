@@ -1,14 +1,13 @@
 import * as React from "react";
 import { mount, ReactWrapper } from 'enzyme';
-import { TaskMaster } from "../../src/ui-components/task-master";
 import { Task } from "../../src/models/task";
+import { TaskManager } from "../../src/ui-components/task-manager";
 
 describe( 'Task Master', ()=> {
 	let wrapper: ReactWrapper;
 	let list: Task[];
-	const deleteItem = jest.fn( item => list = list.filter( i => item !== i ) );
 	const listItems = ()=>wrapper.find( 'li' );
-	const deleteButton = ()=>wrapper.find( 'button' );
+	const deleteButton = ()=>wrapper.find( 'li button' );
 
 	beforeEach(()=>{
 		list = [
@@ -20,9 +19,8 @@ describe( 'Task Master', ()=> {
 		];
 
 		wrapper = mount(
-			<TaskMaster
-				list={list}
-				onDelete={ ( item )=>deleteItem( item ) }
+			<TaskManager
+				initialData={list}
 			/>
 		)
 	})
@@ -32,20 +30,29 @@ describe( 'Task Master', ()=> {
 		expect ( listItems().at(0) ).toIncludeText( 'Task 1' );
 		expect ( listItems().at(4) ).toIncludeText( 'Task 5' );
 	});
+
+	it( 'should add new tasks', ()=>{
+		wrapper.setState({taskName: 'new task'});
+		wrapper.find( 'button' ).at(0).simulate('click');
+
+		expect( listItems() ).toHaveLength( 6 );
+		expect( listItems().at(5) ).toIncludeText( 'new task' );
+	})
+
 	describe( 'Deleting items', ()=>{
 
 		it( 'should delete a task at start of list', ()=> {
 			deleteButton().at(0).simulate('click');
-			wrapper.update();
 
-			expect( deleteItem ).toHaveBeenCalled();
-			expect( list ).toHaveLength( 4 );
+			expect( listItems() ).toHaveLength( 4 );
+			expect( listItems().at(0) ).not.toIncludeText( 'Task 1' );
 		});
 
 		it( 'should delete a task at end of list', ()=> {
-			deleteButton().at( 3 ).simulate('click');
+			deleteButton().at( 4 ).simulate('click');
 
-			expect( list ).toHaveLength( 4 );
+			expect( listItems() ).toHaveLength( 4 );
+			expect( listItems().at(3) ).toIncludeText( 'Task 4' );
 		});
 	})
 

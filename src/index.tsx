@@ -1,5 +1,5 @@
 import * as React from "react";
 import { render } from "react-dom";
-import { App } from "./app";
+import { TaskManager } from "./ui-components/task-manager";
 
-render(<App/>, document.getElementsByTagName("app")[0]);
+render(<TaskManager/>, document.getElementsByTagName("app")[0]);
