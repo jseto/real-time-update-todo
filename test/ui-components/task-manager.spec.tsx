@@ -2,6 +2,8 @@ import * as React from "react";
 import { mount, ReactWrapper } from 'enzyme';
 import { Task } from "../../src/models/task";
 import TaskManager from "../../src/ui-components/task-manager";
+import { Provider } from "react-redux";
+import { configureStore } from "../../src/store/store";
 
 describe( 'Task Master', ()=> {
 	let wrapper: ReactWrapper;
@@ -18,8 +20,12 @@ describe( 'Task Master', ()=> {
 			{ user: 'testUser', id:'5', description: 'Task 5' }
 		];
 
+		const store = configureStore({ tasks: list });
+
 		wrapper = mount(
-			<TaskManager/>
+			<Provider store={ store }>
+				<TaskManager/>
+			</Provider>
 		)
 	})
 
@@ -30,7 +36,7 @@ describe( 'Task Master', ()=> {
 	});
 
 	it( 'should add new tasks', ()=>{
-		wrapper.setState({taskName: 'new task'});
+		wrapper.find('TaskManager').setState({taskName: 'new task'});
 		wrapper.find( 'button' ).at(0).simulate('click');
 
 		expect( listItems() ).toHaveLength( 6 );
