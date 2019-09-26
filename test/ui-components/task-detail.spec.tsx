@@ -8,7 +8,7 @@ describe( 'Task component', ()=> {
 	const deleteItem = jest.fn();
 
 	beforeEach(()=>{
-		const task: Task = { id:'1', description: 'test task' }
+		const task: Task = { user: 'testUser', id:'1', description: 'test task' }
 		wrapper = mount(
 			<TaskDetail
 				task={task}

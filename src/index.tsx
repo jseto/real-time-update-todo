@@ -1,5 +1,16 @@
 import * as React from "react";
 import { render } from "react-dom";
-import { TaskManager } from "./ui-components/task-manager";
+import { Provider } from 'react-redux';
 
-render(<TaskManager/>, document.getElementsByTagName("app")[0]);
+import TaskManager from "./ui-components/task-manager";
+import { configureStore } from "./store/store";
+
+const store = configureStore();
+
+const Root = ()=>(
+	<Provider store={ store }>
+		<TaskManager/>
+	</Provider>
+);
+
+render( <Root />,	document.getElementsByTagName("app")[0] );

@@ -2,43 +2,39 @@ import * as React from "react";
 
 import { Component, ChangeEvent } from "react";
 import { TaskMaster } from "./task-master";
-import { Task } from "./../models/task";
+import { StoreState } from "../store/actionTypes";
+import { addTask, deleteTask } from "../store/actions";
+import { connect } from "react-redux";
+import { Task } from "../models/task";
 
 interface TaskManagerProps {
-	initialData?: Task[];
+	addTask: typeof addTask;
+	deleteTask: typeof deleteTask;
+	tasks: Task[];
 }
 
 interface TaskManagerState {
-	taskList: Task[];
 	taskName: string;
 }
 
-export class TaskManager extends Component<TaskManagerProps, TaskManagerState> {
+class TaskManager extends Component<TaskManagerProps, TaskManagerState> {
 	constructor( props: TaskManagerProps ) {
 		super( props );
 
 		this.state = {
 			taskName: '',
-			taskList: props.initialData || []
 		};
 	}
 
-	deleteItem( item: Task ) {
-		this.setState( prevState => {
-			return {
-				taskList: prevState.taskList.filter( i => item !== i )
-			}
-		});
+	deleteItem( task: Task ) {
+		this.props.deleteTask( task.id );
 	}
 
 	addTask() {
-		this.setState( prevState => {
-			return {
-				taskList: [ ...prevState.taskList, {
-					id: String(Date.now()),
-					description: prevState.taskName
-				}]
-			}
+		this.props.addTask({
+			user: '',
+			id: String(Date.now()),
+			description: this.state.taskName
 		});
 	}
 
@@ -63,7 +59,7 @@ export class TaskManager extends Component<TaskManagerProps, TaskManagerState> {
 				</button>
 
 				<TaskMaster
-					list={ this.state.taskList }
+					list={ this.props.tasks }
 					onDelete={ (item: Task ) =>  this.deleteItem( item ) }
 				/>
 			</div>
@@ -71,3 +67,12 @@ export class TaskManager extends Component<TaskManagerProps, TaskManagerState> {
   }
 
 }
+
+function mapStateToProps( state: StoreState ) {
+	return { tasks: state.tasks };
+}
+
+export default connect( mapStateToProps, {
+	addTask,
+	deleteTask
+})( TaskManager );

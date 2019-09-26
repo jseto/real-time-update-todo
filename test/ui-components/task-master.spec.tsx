@@ -12,11 +12,11 @@ describe( 'Task Master', ()=> {
 
 	beforeEach(()=>{
 		list = [
-			{ id:'1', description: 'Task 1' },
-			{ id:'2', description: 'Task 2' },
-			{ id:'3', description: 'Task 3' },
-			{ id:'4', description: 'Task 4' },
-			{ id:'5', description: 'Task 5' }
+			{ user: 'testUser', id:'1', description: 'Task 1' },
+			{ user: 'testUser', id:'2', description: 'Task 2' },
+			{ user: 'testUser', id:'3', description: 'Task 3' },
+			{ user: 'testUser', id:'4', description: 'Task 4' },
+			{ user: 'testUser', id:'5', description: 'Task 5' }
 		];
 
 		wrapper = mount(

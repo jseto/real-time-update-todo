@@ -1,7 +1,7 @@
 import * as React from "react";
 import { mount, ReactWrapper } from 'enzyme';
 import { Task } from "../../src/models/task";
-import { TaskManager } from "../../src/ui-components/task-manager";
+import TaskManager from "../../src/ui-components/task-manager";
 
 describe( 'Task Master', ()=> {
 	let wrapper: ReactWrapper;
@@ -11,17 +11,15 @@ describe( 'Task Master', ()=> {
 
 	beforeEach(()=>{
 		list = [
-			{ id:'1', description: 'Task 1' },
-			{ id:'2', description: 'Task 2' },
-			{ id:'3', description: 'Task 3' },
-			{ id:'4', description: 'Task 4' },
-			{ id:'5', description: 'Task 5' }
+			{ user: 'testUser', id:'1', description: 'Task 1' },
+			{ user: 'testUser', id:'2', description: 'Task 2' },
+			{ user: 'testUser', id:'3', description: 'Task 3' },
+			{ user: 'testUser', id:'4', description: 'Task 4' },
+			{ user: 'testUser', id:'5', description: 'Task 5' }
 		];
 
 		wrapper = mount(
-			<TaskManager
-				initialData={list}
-			/>
+			<TaskManager/>
 		)
 	})
 

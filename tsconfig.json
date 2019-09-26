@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
 		"jsx": "react",
     "module": "commonjs",
     "moduleResolution": "node",
@@ -9,7 +9,7 @@
     "outDir": "./out",
 		"resolveJsonModule": true,
     "lib": [
-      "es2015", "dom"
+      "dom"
     ],
 		"experimentalDecorators": true
   }
