@@ -7,14 +7,16 @@ export const emptyState = {
   tasks: []
 };
 
-const saga = createSagaMiddleware();
-
 export function configureStore( initialState = emptyState ) {
-	return createStore(
+	const saga = createSagaMiddleware();
+
+	const store = createStore(
 		taskReducer,
 		initialState,
 		applyMiddleware(saga)
 	);
-}
 
-// saga.run( rootSaga )
+	saga.run( rootSaga )
+
+	return store;
+}

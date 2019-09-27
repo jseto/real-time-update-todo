@@ -1,3 +1,4 @@
+import io from 'socket.io-client';
 import { fork, call, take, put } from "redux-saga/effects";
 import { host } from "..";
 import { eventChannel } from "redux-saga";
@@ -31,6 +32,7 @@ function* read( socket: SocketIOClient.Socket ) {
 
 	while (true) {
 		const action = yield take( socketChannel );
+		console.log( action.type )
 		yield put( action );
 	}
 };
