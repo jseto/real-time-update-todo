@@ -1,4 +1,4 @@
-import express from 'express';
+import express = require( 'express' );
 import { Task } from '../src/models/task';
 import { DataStreamer } from './data-streamer';
 import { Sockets } from './sockets';

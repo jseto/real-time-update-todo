@@ -1,4 +1,4 @@
-import io from 'socket.io-client';
+import io = require( 'socket.io-client' );
 import { fork, call, take, put } from "redux-saga/effects";
 import { eventChannel } from "redux-saga";
 import { refreshTasks } from "./actions";
