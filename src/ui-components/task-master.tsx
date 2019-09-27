@@ -14,7 +14,7 @@ export class TaskMaster extends Component<TaskMasterProps> {
 		const { list, onDelete } = { ...this.props }
 
 		return (
-			<ul>
+			<ul className="master-view">
 				{ list && list.map( item => {
 					return (
 						<li key={item.id}>

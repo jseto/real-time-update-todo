@@ -47,7 +47,7 @@ class TaskManager extends Component<TaskManagerProps, TaskManagerState> {
 
   render() {
     return (
-			<div className="trip-panel">
+			<div className="app-panel">
 				<div className="inline-middle half-width">
 					<input
 						placeholder="Enter new task"
