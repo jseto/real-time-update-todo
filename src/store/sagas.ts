@@ -14,7 +14,7 @@ export default function* rootSaga() {
 function connect() {
 	const socket = io( host );
 	return new Promise(resolve => {
-		socket.on( 'connect', () => resolve( socket ));
+		socket.on( 'connect', () => resolve( socket ) );
 	});
 }
 
@@ -42,10 +42,16 @@ function* read( socket: SocketIOClient.Socket ) {
 	}
 };
 
+
+function notifyActionToServer( action: TaskAction, socket: SocketIOClient.Socket ) {
+	socket.emit( action.type, action.data )
+}
+
 function* write( socket: SocketIOClient.Socket ) {
+	const anyAction = '*';
+
 	while( true ) {
-    const action: TaskAction = yield take( '*' );
-    socket.emit( action.type, action.data )
+    notifyActionToServer( yield take( anyAction ), socket );
 	}
 }
 

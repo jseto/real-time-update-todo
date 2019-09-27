@@ -19,6 +19,7 @@ export class DataStreamer<T> {
 		if ( !fs.existsSync( dir ) ) {
 			fs.mkdirSync( dir );
 		}
+		console.log( 'writing :', data )
 		fs.writeFileSync( this._filename, this._writeParser( data ));
 	}
 

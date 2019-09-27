@@ -1,7 +1,7 @@
 import io = require( 'socket.io' );
 import { REFRESH_TASKS, TaskAction } from '../src/store/actionTypes';
 import { Store } from 'redux';
-import { addTask, deleteTask, refreshTasks } from '../src/store/actions';
+import { addTask, deleteTask } from '../src/store/actions';
 import { Task } from '../src/models/task';
 import { Server as HttpServer } from 'http';
 

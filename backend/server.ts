@@ -2,9 +2,10 @@ import express = require( 'express' );
 import { Task } from '../src/models/task';
 import { DataStreamer } from './data-streamer';
 import { Sockets } from './sockets';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { taskReducer } from '../src/store/reducers';
 import { StoreState } from '../src/store/actionTypes';
+import { StreamerMiddleware } from './streamer-middleware';
 
 const app: express.Application = express();
 app.use( express.json() );
@@ -21,7 +22,8 @@ const data: StoreState = { tasks: streamer.readData() || [] };
 console.log( 'data', data )
 let store: any = createStore(
 	taskReducer,
-	data
+	data,
+	applyMiddleware( new StreamerMiddleware( streamer ).handler() )
 );
 
 const PORT = process.env.PORT || 3000;
