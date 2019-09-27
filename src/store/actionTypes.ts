@@ -7,16 +7,7 @@ export interface StoreState {
 export const ADD_TASK = "ADD_TASK";
 export const DELETE_TASK = "DELETE_TASK";
 
-interface AddTaskAction {
-  type: typeof ADD_TASK;
-  payload: Task;
+export interface TaskAction {
+	type: string;
+	data: Task;
 }
-
-interface DeleteTaskAction {
-  type: typeof DELETE_TASK;
-  meta: {
-    taskId: string;
-  };
-}
-
-export type TaskActionTypes = AddTaskAction | DeleteTaskAction;

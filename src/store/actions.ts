@@ -1,18 +1,16 @@
-import { ADD_TASK, DELETE_TASK } from "./actionTypes";
+import { ADD_TASK, DELETE_TASK, TaskAction } from "./actionTypes";
 import { Task } from "../models/task";
 
-export function addTask( task: Task) {
+export function addTask( task: Task): TaskAction {
   return {
     type: ADD_TASK,
-    payload: task
+    data: task
   };
 }
 
-export function deleteTask( taskId: string ) {
+export function deleteTask( task: Task ): TaskAction {
   return {
     type: DELETE_TASK,
-    meta: {
-      taskId
-    }
+    data: task
   };
 }

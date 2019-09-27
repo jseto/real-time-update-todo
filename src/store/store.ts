@@ -1,8 +1,9 @@
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from 'redux-saga';
 import { taskReducer } from "./reducers";
+import rootSaga from "./sagas";
 
-const emptyState = {
+export const emptyState = {
   tasks: []
 };
 
@@ -15,3 +16,5 @@ export function configureStore( initialState = emptyState ) {
 		applyMiddleware(saga)
 	);
 }
+
+// saga.run( rootSaga )

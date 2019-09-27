@@ -27,7 +27,7 @@ class TaskManager extends Component<TaskManagerProps, TaskManagerState> {
 	}
 
 	deleteItem( task: Task ) {
-		this.props.deleteTask( task.id );
+		this.props.deleteTask( task );
 	}
 
 	addTask() {

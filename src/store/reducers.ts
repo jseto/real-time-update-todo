@@ -1,20 +1,15 @@
-import { StoreState, TaskActionTypes, ADD_TASK, DELETE_TASK } from "./actionTypes";
+import { StoreState, ADD_TASK, DELETE_TASK, TaskAction } from "./actionTypes";
+import { emptyState } from "./store";
 
-const initialState: StoreState = {
-  tasks: []
-};
-
-export function taskReducer( state = initialState, action: TaskActionTypes ): StoreState {
+export function taskReducer( state = emptyState, action: TaskAction ): StoreState {
   switch (action.type) {
     case ADD_TASK:
       return {
-        tasks: [...state.tasks, action.payload]
+        tasks: [...state.tasks, action.data]
       };
     case DELETE_TASK:
       return {
-        tasks: state.tasks.filter(
-          task => task.id !== action.meta.taskId
-        )
+        tasks: state.tasks.filter( task => task.id !== action.data.id )
       };
     default:
       return state;
