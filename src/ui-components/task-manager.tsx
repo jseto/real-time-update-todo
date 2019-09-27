@@ -11,6 +11,7 @@ interface TaskManagerProps {
 	addTask: typeof addTask;
 	deleteTask: typeof deleteTask;
 	tasks: Task[];
+	user: string;
 }
 
 interface TaskManagerState {
@@ -32,7 +33,7 @@ class TaskManager extends Component<TaskManagerProps, TaskManagerState> {
 
 	addTask() {
 		this.props.addTask({
-			user: '',
+			user: this.props.user,
 			id: String(Date.now()),
 			description: this.state.taskName
 		});
@@ -46,20 +47,22 @@ class TaskManager extends Component<TaskManagerProps, TaskManagerState> {
 
   render() {
     return (
-			<div>
-				<input
-					placeholder="Enter new task"
-					value={ this.state.taskName }
-					onChange={ event => this.taskNameInputChange( event ) }
-				/>
-
-				<button
-					onClick={ () => this.addTask() }>
-						Add
-				</button>
-
+			<div className="trip-panel">
+				<div className="inline-middle half-width">
+					<input
+						placeholder="Enter new task"
+						value={ this.state.taskName }
+						onChange={ event => this.taskNameInputChange( event ) }
+					/>
+				</div>
+				<div  className="inline-middle half-width align-right bottom-margin">
+					<button
+						onClick={ () => this.addTask() }>
+							Add
+					</button>
+				</div>
 				<TaskMaster
-					list={ this.props.tasks }
+					list={ this.props.tasks.filter( task => task.user === this.props.user ) }
 					onDelete={ (item: Task ) =>  this.deleteItem( item ) }
 				/>
 			</div>

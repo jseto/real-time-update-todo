@@ -8,7 +8,7 @@ export class StreamerMiddleware<T> {
 	}
 
 	handler() {
-		return ( store: Store ) => next => ( action: TaskAction ) => {
+		return ( store: Store ) => ( next: any ) => ( action: TaskAction ) => {
 			const result = next(action)
 			if ( action.type === ADD_TASK ) {
 				this._streamer.writeData( store.getState().tasks )

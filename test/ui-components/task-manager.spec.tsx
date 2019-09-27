@@ -17,14 +17,15 @@ describe( 'Task Master', ()=> {
 			{ user: 'testUser', id:'2', description: 'Task 2' },
 			{ user: 'testUser', id:'3', description: 'Task 3' },
 			{ user: 'testUser', id:'4', description: 'Task 4' },
-			{ user: 'testUser', id:'5', description: 'Task 5' }
+			{ user: 'testUser', id:'5', description: 'Task 5' },
+			{ user: 'otherUser', id:'6', description: 'Task 6' }
 		];
 
 		const store = configureStore({ tasks: list });
 
 		wrapper = mount(
 			<Provider store={ store }>
-				<TaskManager/>
+				<TaskManager user='testUser'/>
 			</Provider>
 		)
 	})
