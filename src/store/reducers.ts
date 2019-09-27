@@ -1,7 +1,7 @@
 import { StoreState, ADD_TASK, DELETE_TASK, TaskAction, RefreshAction, REFRESH_TASKS } from "./actionTypes";
 import { emptyState } from "./store";
 
-export function taskReducer( state = emptyState, action: TaskAction | RefreshAction ): StoreState {
+export function taskReducer( state: StoreState = emptyState, action: TaskAction | RefreshAction ): StoreState {
   switch (action.type) {
     case ADD_TASK:
       return {

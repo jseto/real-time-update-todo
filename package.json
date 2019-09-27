@@ -21,7 +21,7 @@
   "scripts": {
     "test": "jest",
     "debug": "node --inspect-brk node_modules/.bin/jest --runInBand --coverage false",
-    "rest-server": "nodemon --watch 'backend/**/*.ts' --watch 'test/database/mock-data/*.*' --exec 'ts-node' backend/server.ts",
+    "rest-server": "nodemon --watch 'backend/**/*.ts' --exec 'ts-node' backend/server.ts",
     "webpack-server": "webpack-dev-server --config webpack/web.webpack.config.js --open",
     "dev": "npm run rest-server & webpack-dev-server --config webpack/web.webpack.config.js & wait",
     "dev-open": "npm run rest-server & npm run webpack-server & wait",

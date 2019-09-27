@@ -1,23 +1,14 @@
-// import express = require( 'express' );
 import express from 'express';
-import io from 'socket.io';
 import { Task } from '../src/models/task';
-import { ADD_TASK, DELETE_TASK, REFRESH_TASKS } from '../src/store/actionTypes';
+import { DataStreamer } from './data-streamer';
+import { Sockets } from './sockets';
+import { createStore } from 'redux';
+import { taskReducer } from '../src/store/reducers';
+import { StoreState } from '../src/store/actionTypes';
 
-// Create a new express application instance
 const app: express.Application = express();
-
 app.use( express.json() );
-
 app.use( express.static( 'dist/frontend' ) )
-
-const PORT = process.env.PORT || 3000;
-
-const server = app.listen(PORT, () => {
-  console.info('Rest server listening on port ' + PORT );
-});
-
-const ioServer = io.listen( server );
 
 app.use( ( _request, response, next ) => {
   response.header("Access-Control-Allow-Origin", "*");
@@ -25,20 +16,18 @@ app.use( ( _request, response, next ) => {
   next();
 });
 
-const tasks: Task[] = [];
+const streamer = new DataStreamer<Task[]>( 'out/data.dat' );
+const data: StoreState = { tasks: streamer.readData() || [] };
+console.log( 'data', data )
+let store: any = createStore(
+	taskReducer,
+	data
+);
 
-ioServer.sockets.on( 'connection', socket => {
-	console.log("Socket Connected");
-	ioServer.sockets. emit( REFRESH_TASKS, 'tasks' );
+const PORT = process.env.PORT || 3000;
 
-	socket.on( ADD_TASK, ( task: Task ) => {
-		ioServer.sockets.emit( REFRESH_TASKS, tasks );
-		console.log( 'Add task: ', task );
-	});
+const server = app.listen( PORT, () => {
+  console.info('Socket server listening on port ' + PORT );
 
-	socket.on( DELETE_TASK, ( task: Task ) =>{
-		ioServer.sockets.emit( REFRESH_TASKS, tasks );
-		console.log( 'Delete task', task );
-	})
-
-})
+	new Sockets( server, store );
+});
