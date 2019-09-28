@@ -3,6 +3,25 @@
 [![Build Status](https://travis-ci.org/jseto/real-time-update-todo.svg?branch=master)](https://travis-ci.org/jseto/real-time-update-todo) [![Maintainability](https://api.codeclimate.com/v1/badges/aaba262edf31d561db59/maintainability)](https://codeclimate.com/github/jseto/real-time-update-todo/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/aaba262edf31d561db59/test_coverage)](https://codeclimate.com/github/jseto/real-time-update-todo/test_coverage)
 [![dependencies Status](https://david-dm.org/jseto/real-time-update-todo/status.svg)](https://david-dm.org/jseto/real-time-update-todo) [![devDependencies Status](https://david-dm.org/jseto/real-time-update-todo/dev-status.svg)](https://david-dm.org/jseto/real-time-update-todo?type=dev)
 
+## Running a local copy
+
+Before running a local copy you should install all dependencies by running the following command in a terminal console with Node installed:
+
+`npm install`
+
+To run a local server and check the application run the following command from a terminal session
+
+`npm run dev`
+
+Once the server is up and running, open your browser and point to [http://localhost:8080](http://localhost:8080)
+
+## Unit Tests
+
+The project has been developed using a TDD (Test Driven Developed) approach. The test use Jest and Enzyme library.
+You can run the test issuing the following command in a terminal console:
+
+`npm run test`
+
 ## Code description
 
 You can find the full source code at [Github](https://github.com/jseto/real-time-update-todo)
