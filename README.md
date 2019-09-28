@@ -5,6 +5,8 @@
 
 ## Code description
 
+You can find the full source code at [Github](https://github.com/jseto/real-time-update-todo)
+
 ### User interface
 
 The main UI components are located in the ui-components folder. It is a standard
@@ -40,4 +42,4 @@ You can explore the project code quality and test coverage in [CodeClimate](http
 
 ## Continuous Integration
 
-This project uses [Travis](https://travis.com) for continuous integration (CI) and deploys it at [AWS](https://aws.amazon.com). You can see a live website for this application [here](http://real-time-update-todo.eu-west-2.elasticbeanstalk.com)
+This project uses [Travis](https://travis.com) for continuous integration (CI) and deploys a Docker container on every master branch commit at [AWS](https://aws.amazon.com). You can see a live website for this application [here](http://real-time-update-todo.eu-west-2.elasticbeanstalk.com)
