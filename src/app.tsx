@@ -66,12 +66,17 @@ export class App extends Component< {}, AppState > {
 	}
 
 	render() {
-		if( this.state.isLoggedIn ) {
-			return this.tasksPanel();
-		}
-		else {
-			return this.logginPanel();
-		}
+		return(
+			<div className="row">
+				<div className="column">
+				</div>
+				<div className="double-column">
+					{	this.state.isLoggedIn? this.tasksPanel() : this.logginPanel()	}
+				</div>
+				<div className="column">
+				</div>
+			</div>
+		);
 	}
 
 	private _store: Store<StoreState, TaskAction>;
