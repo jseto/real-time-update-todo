@@ -5,9 +5,9 @@ import { refreshTasks } from "./actions";
 import { Task } from "../models/task";
 import { TaskAction } from "./actionTypes";
 
-let host = 'http://localhost:8080';
+let host = 'http://localhost:3000';
 try {
-	host = 'http://'+location.hostname+':8080'
+	host = 'http://'+location.hostname+':3000'
 } catch{}
 
 export default function* rootSaga() {
