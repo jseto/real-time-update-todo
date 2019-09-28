@@ -7,7 +7,17 @@
 
 ### User interface
 
-The main UI components are located in the ui-components folder. It is a standard master-detail pattern
+The main UI components are located in the ui-components folder. It is a standard master-detail pattern with TaskMaster and TaskDetail components.
+The TaskMaster component is a container for the TaskMaster and Redux actions interfaced with react-redux library.
+
+### Data
+
+Data is managed though a Redux store. There are defined two actions for adding a task and deleting a task. A third action is defined to retrieve
+data from the server.
+
+### Client side communications
+
+The communication with the server is done using sockets and is managed by the redux-saga middleware using generator functions to deal with asynchronous flows inherent to socket programming.
 
 ## Code Quality monitoring
 
