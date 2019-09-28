@@ -19,7 +19,7 @@ app.use( ( _request, response, next ) => {
 
 const streamer = new DataStreamer<Task[]>( 'out/data.dat' );
 const data: StoreState = { tasks: streamer.readData() || [] };
-console.log( 'data', data )
+
 let store: any = createStore(
 	taskReducer,
 	data,
