@@ -9,7 +9,7 @@ describe( 'Task Master', ()=> {
 	let wrapper: ReactWrapper;
 	let list: Task[];
 	const listItems = ()=>wrapper.find( 'li' );
-	const deleteButton = ()=>wrapper.find( 'li button' );
+	const deleteButton = ()=>wrapper.find( '.icon-button' );
 
 	beforeEach(()=>{
 		list = [

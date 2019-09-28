@@ -8,7 +8,7 @@ describe( 'Task Master', ()=> {
 	let list: Task[];
 	const deleteItem = jest.fn( item => list = list.filter( i => item !== i ) );
 	const listItems = ()=>wrapper.find( 'li' );
-	const deleteButton = ()=>wrapper.find( 'button' );
+	const deleteButton = ()=>wrapper.find( '.icon-button' );
 
 	beforeEach(()=>{
 		list = [

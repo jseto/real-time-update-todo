@@ -3,6 +3,11 @@
 [![Build Status](https://travis-ci.org/jseto/real-time-update-todo.svg?branch=master)](https://travis-ci.org/jseto/real-time-update-todo) [![Maintainability](https://api.codeclimate.com/v1/badges/aaba262edf31d561db59/maintainability)](https://codeclimate.com/github/jseto/real-time-update-todo/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/aaba262edf31d561db59/test_coverage)](https://codeclimate.com/github/jseto/real-time-update-todo/test_coverage)
 [![dependencies Status](https://david-dm.org/jseto/real-time-update-todo/status.svg)](https://david-dm.org/jseto/real-time-update-todo) [![devDependencies Status](https://david-dm.org/jseto/real-time-update-todo/dev-status.svg)](https://david-dm.org/jseto/real-time-update-todo?type=dev)
 
+## Code description
+
+### User interface
+
+The main UI components are located in the ui-components folder. It is a standard master-detail pattern
 
 ## Code Quality monitoring
 
