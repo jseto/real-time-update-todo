@@ -22,9 +22,9 @@ script:
 deploy:
   provider: elasticbeanstalk
   access_key_id:
-    secure: $AWS_ACCESSKEYID
+    secure: $AWSAccessKeyId
   secret_access_key:
-    secure: "$AWS_SECRETACCESSKEY"
+    secure: $AWSSecretKey
   region: "eu-west-2"
   app: "Test"
   env: "real-time-update-todo-env"
